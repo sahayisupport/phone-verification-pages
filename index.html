@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahayi — Everyone here can help, and everyone here needs help</title>
+<meta name="description" content="Sahayi connects agents, customers, and professionals across Kerala. Anyone can offer a hand. Anyone can ask for one.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand: #EFEAD9;
+    --sand-deep: #E4DCC4;
+    --ink: #221F19;
+    --paddy: #1E4638;
+    --paddy-deep: #142F26;
+    --gold: #C98A2E;
+    --gold-soft: #E3B15D;
+    --line: rgba(34,31,25,0.14);
+    --paper: #FBF9F2;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0 0 0.4em 0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* NAV */
+  nav.top{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 28px;
+    max-width:1080px; margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.5rem;
+    color:var(--paddy-deep);
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .brand .mark{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-style:italic;
+    color:var(--gold);
+    font-size:1rem;
+  }
+  nav.top .links{display:flex; gap:28px; font-size:0.92rem; font-weight:500;}
+  nav.top .links a{text-decoration:none; opacity:0.75; transition:opacity .2s;}
+  nav.top .links a:hover{opacity:1;}
+
+  /* HERO */
+  .hero{
+    padding:48px 0 70px;
+    position:relative;
+  }
+  .toggle-row{
+    display:flex; align-items:center; gap:16px;
+    margin-bottom:28px;
+  }
+  .toggle-label{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-weight:600;
+    opacity:0.6;
+  }
+  .switch{
+    position:relative;
+    width:220px; height:52px;
+    background:var(--paper);
+    border:1.5px solid var(--line);
+    border-radius:999px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    padding:4px;
+    transition:background .3s ease;
+  }
+  .switch .pill{
+    position:absolute;
+    top:4px; left:4px;
+    width:calc(50% - 4px);
+    height:calc(100% - 8px);
+    background:var(--paddy);
+    border-radius:999px;
+    transition:transform .35s cubic-bezier(.65,0,.35,1), background .35s ease;
+  }
+  .switch.agent .pill{
+    transform:translateX(calc(100% + 0px));
+    background:var(--gold);
+  }
+  .switch .opt{
+    position:relative; z-index:2;
+    flex:1;
+    text-align:center;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--ink);
+    transition:color .3s ease;
+  }
+  .switch .opt.active{color:var(--paper);}
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 4.4vw, 3.6rem);
+    font-weight:600;
+    line-height:1.06;
+    color:var(--paddy-deep);
+    transition:color .3s ease;
+  }
+  .hero h1 .accent{
+    font-style:italic;
+    font-weight:400;
+    color:var(--gold);
+  }
+  .hero.agent h1 .accent{color:var(--paddy);}
+  .hero p.lede{
+    font-size:1.12rem;
+    max-width:46ch;
+    opacity:0.82;
+    margin:18px 0 32px;
+  }
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    border:1.5px solid transparent;
+    transition:transform .2s ease, background .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .btn.primary{background:var(--paddy); color:var(--paper);}
+  .hero.agent .btn.primary{background:var(--gold);}
+  .btn.primary:hover{transform:translateY(-2px);}
+  .btn.ghost{border-color:var(--line); color:var(--ink);}
+  .btn.ghost:hover{border-color:var(--ink);}
+
+  /* HERO VISUAL: two hands / roles knot */
+  .knot-card{
+    background:var(--paper);
+    border-radius:26px;
+    padding:34px;
+    border:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .knot-card .role-line{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:0.92rem;
+  }
+  .knot-card .role-line:last-child{border-bottom:none;}
+  .knot-card .role-line .tag{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-weight:600;
+    padding:4px 10px;
+    border-radius:999px;
+    background:var(--sand-deep);
+  }
+  .knot-card .role-line.you .tag{background:var(--paddy); color:var(--paper);}
+  .hero.agent .knot-card .role-line.you .tag{background:var(--gold); color:var(--paper);}
+
+  /* HOW IT WORKS */
+  .section{padding:64px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; margin-bottom:40px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:24px;
+  }
+  .eyebrow{
+    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.14em;
+    font-weight:700; color:var(--gold);
+  }
+  .section-head h2{font-size:1.9rem; color:var(--paddy-deep); font-weight:600;}
+  .three-col{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:28px;
+  }
+  .card .num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.6rem;
+    color:var(--gold);
+    display:block;
+    margin-bottom:12px;
+  }
+  .card h3{font-size:1.1rem; margin-bottom:8px; color:var(--paddy-deep);}
+  .card p{font-size:0.94rem; opacity:0.8; margin:0;}
+
+  /* WHO'S HERE */
+  .who-row{
+    display:flex; flex-wrap:wrap; gap:12px;
+    margin-top:8px;
+  }
+  .chip{
+    background:var(--sand-deep);
+    border:1px solid var(--line);
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:0.9rem;
+    font-weight:500;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:36px 0 40px;
+    font-size:0.88rem;
+    opacity:0.75;
+  }
+  footer .foot-row{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  }
+  footer a{text-decoration:underline;}
+
+  @media (max-width:820px){
+    .hero-grid{grid-template-columns:1fr;}
+    .three-col{grid-template-columns:1fr;}
+    nav.top{flex-direction:column; align-items:flex-start; gap:14px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="brand">Sahayi <span class="mark">സഹായി</span></div>
+  <div class="links">
+    <a href="#how">How it works</a>
+    <a href="#who">Who's here</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="toggle-row">
+      <span class="toggle-label">I'm here as</span>
+      <div class="switch" id="roleSwitch">
+        <div class="pill"></div>
+        <span class="opt active" data-role="customer">Someone who needs help</span>
+        <span class="opt" data-role="agent">Someone who can help</span>
+      </div>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <h1 id="heroTitle">Post the job. <span class="accent">Someone nearby is ready.</span></h1>
+        <p class="lede" id="heroLede">From fixing a leaking tap to hiring a licensed electrician, Sahayi connects you with people around Kerala who are free right now — verified agents and professionals alike.</p>
+        <div class="cta-row">
+          <a href="#" class="btn primary" id="ctaPrimary">Post your first task</a>
+          <a href="#how" class="btn ghost">See how it works</a>
+        </div>
+      </div>
+
+      <div class="knot-card">
+        <div class="role-line you">
+          <span>You, today</span>
+          <span class="tag" id="youTag">Customer</span>
+        </div>
+        <div class="role-line">
+          <span>Nearby agent</span>
+          <span class="tag">Available</span>
+        </div>
+        <div class="role-line">
+          <span>Nearby professional</span>
+          <span class="tag">Verified</span>
+        </div>
+        <div class="role-line">
+          <span>Tomorrow, you might switch to</span>
+          <span class="tag" id="flipTag">Agent</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">How Sahayi works</div>
+        <h2>One app, both sides of the job</h2>
+      </div>
+    </div>
+    <div class="three-col">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Post or browse</h3>
+        <p>Describe the task and your budget, or browse open jobs near you if you're looking to earn.</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>Match with someone verified</h3>
+        <p>Agents and professionals on Sahayi carry ID and skill verification, so you know who's showing up.</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>Get it done, rate it</h3>
+        <p>Track the job in the app, pay when it's done, and leave a rating that helps the next person choose well.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="who">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Who's on Sahayi</div>
+        <h2>Everyone can be both</h2>
+      </div>
+    </div>
+    <p style="max-width:60ch; opacity:0.85; margin-bottom:20px;">
+      Unlike a fixed marketplace of "workers" and "clients," Sahayi treats every account as both. The same person who hires help for a home repair this week can list their own time next week.
+    </p>
+    <div class="who-row">
+      <span class="chip">Home & errand agents</span>
+      <span class="chip">Electricians & plumbers</span>
+      <span class="chip">Tutors</span>
+      <span class="chip">Drivers</span>
+      <span class="chip">Event help</span>
+      <span class="chip">Licensed professionals</span>
+      <span class="chip">Everyday customers</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>© 2026 Sahayi. Made for Kerala.</span>
+    <span>
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="mailto:sahayi.support@gmail.com">sahayi.support@gmail.com</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  const sw = document.getElementById('roleSwitch');
+  const hero = document.getElementById('hero');
+  const title = document.getElementById('heroTitle');
+  const lede = document.getElementById('heroLede');
+  const cta = document.getElementById('ctaPrimary');
+  const youTag = document.getElementById('youTag');
+  const flipTag = document.getElementById('flipTag');
+  const opts = sw.querySelectorAll('.opt');
+
+  const copy = {
+    customer: {
+      title: 'Post the job. <span class="accent">Someone nearby is ready.</span>',
+      lede: "From fixing a leaking tap to hiring a licensed electrician, Sahayi connects you with people around Kerala who are free right now — verified agents and professionals alike.",
+      cta: "Post your first task",
+      you: "Customer",
+      flip: "Agent"
+    },
+    agent: {
+      title: 'List your time. <span class="accent">Work finds you.</span>',
+      lede: "Whether you run errands on your scooter or hold a professional license, Sahayi puts nearby jobs in front of you — with fair, transparent payouts.",
+      cta: "List yourself as available",
+      you: "Agent",
+      flip: "Customer"
+    }
+  };
+
+  function setRole(role){
+    sw.classList.toggle('agent', role === 'agent');
+    hero.classList.toggle('agent', role === 'agent');
+    opts.forEach(o => o.classList.toggle('active', o.dataset.role === role));
+    title.innerHTML = copy[role].title;
+    lede.textContent = copy[role].lede;
+    cta.textContent = copy[role].cta;
+    youTag.textContent = copy[role].you;
+    flipTag.textContent = copy[role].flip;
+  }
+
+  sw.addEventListener('click', () => {
+    const nextRole = sw.classList.contains('agent') ? 'customer' : 'agent';
+    setRole(nextRole);
+  });
+</script>
+
+</body>
+</html>
