@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Sahayi</title>
+<meta name="description" content="How Sahayi collects, uses, and protects your data, including phone number verification for OTP login.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand: #EFEAD9;
+    --sand-deep: #E4DCC4;
+    --ink: #221F19;
+    --paddy: #1E4638;
+    --paddy-deep: #142F26;
+    --gold: #C98A2E;
+    --line: rgba(34,31,25,0.14);
+    --paper: #FBF9F2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.65;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px 80px;}
+  nav.top{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 28px;
+    max-width:760px; margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.5rem;
+    color:var(--paddy-deep);
+    text-decoration:none;
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .brand .mark{
+    font-weight:400; font-style:italic; color:var(--gold); font-size:1rem;
+  }
+  nav.top a.back{
+    font-size:0.9rem; font-weight:500; text-decoration:none; opacity:0.75;
+  }
+  header.page-head{
+    padding:20px 0 40px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:40px;
+  }
+  .eyebrow{
+    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.14em;
+    font-weight:700; color:var(--gold); margin-bottom:10px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-size:2.2rem; font-weight:600; color:var(--paddy-deep);
+    margin:0 0 10px;
+  }
+  .updated{font-size:0.9rem; opacity:0.65;}
+  h2{
+    font-family:'Fraunces', serif;
+    font-size:1.35rem; font-weight:600; color:var(--paddy-deep);
+    margin:40px 0 12px;
+  }
+  p{margin:0 0 14px; opacity:0.9;}
+  ul{margin:0 0 14px; padding-left:22px;}
+  li{margin-bottom:8px; opacity:0.9;}
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px 26px;
+    margin:24px 0;
+  }
+  .card h3{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem; margin:0 0 8px; color:var(--paddy-deep);
+  }
+  table{width:100%; border-collapse:collapse; margin:14px 0 20px;}
+  th,td{
+    text-align:left; padding:10px 12px; font-size:0.92rem;
+    border-bottom:1px solid var(--line);
+  }
+  th{
+    font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em;
+    opacity:0.6; font-weight:600;
+  }
+  a.email{color:var(--paddy); font-weight:600; text-decoration:underline;}
+  footer{
+    border-top:1px solid var(--line);
+    padding:30px 0 40px;
+    font-size:0.88rem; opacity:0.75;
+    max-width:760px; margin:0 auto; padding-left:28px; padding-right:28px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <a class="brand" href="index.html">Sahayi <span class="mark">സഹായി</span></a>
+  <a class="back" href="index.html">&larr; Back to home</a>
+</nav>
+
+<div class="wrap">
+  <header class="page-head">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 22 July 2026</p>
+  </header>
+
+  <p>Sahayi ("we", "us", "our") operates the Sahayi mobile application, a platform connecting customers, agents, and professionals across Kerala. This policy explains what information we collect, why we collect it, and how it's handled.</p>
+
+  <h2>Information we collect</h2>
+  <div class="card">
+    <table>
+      <tr><th>Data</th><th>Why we collect it</th></tr>
+      <tr><td>Phone number</td><td>To verify your identity via one-time password (OTP) and enable login</td></tr>
+      <tr><td>OTP / verification codes</td><td>To confirm the phone number belongs to you at sign-up and login</td></tr>
+      <tr><td>Name & profile details</td><td>To show other users who they're matched with for a task</td></tr>
+      <tr><td>Location (approximate or precise, with permission)</td><td>To match you with nearby agents, professionals, or job posts</td></tr>
+      <tr><td>Task details & messages</td><td>To coordinate jobs between customers and agents/professionals</td></tr>
+      <tr><td>Payment details</td><td>To process payments for completed tasks (handled by our payment processor, not stored by us directly)</td></tr>
+      <tr><td>ID / skill verification documents</td><td>To verify agents and professionals before they can accept jobs</td></tr>
+      <tr><td>Device & usage data</td><td>To keep the app secure and improve performance</td></tr>
+    </table>
+  </div>
+
+  <h2>How OTP verification works</h2>
+  <p>When you sign up or log in, we send a one-time password to your phone number using Firebase Authentication (a Google service). We do not read or store the contents of your SMS inbox — only the verification code exchange needed to confirm the OTP is required to complete sign-in.</p>
+
+  <h2>How we use your information</h2>
+  <ul>
+    <li>To create and secure your account</li>
+    <li>To match customers with agents or professionals nearby</li>
+    <li>To facilitate communication and payment between users for a posted task</li>
+    <li>To verify the identity and credentials of agents and professionals</li>
+    <li>To respond to support requests and resolve disputes between users</li>
+    <li>To improve app reliability and prevent fraud or abuse</li>
+  </ul>
+
+  <h2>Who we share it with</h2>
+  <p>We share data only where necessary to run the app:</p>
+  <ul>
+    <li><strong>Firebase / Google Cloud</strong> — authentication, hosting, and backend infrastructure</li>
+    <li><strong>Payment processors</strong> — to complete in-app payments</li>
+    <li><strong>Other users</strong> — limited profile and task details needed to complete a job (e.g. name, rating, approximate location)</li>
+  </ul>
+  <p>We do not sell your personal data to advertisers or third parties.</p>
+
+  <h2>Data retention</h2>
+  <p>We retain account and task data for as long as your account is active, and for a limited period afterward to meet legal, accounting, or dispute-resolution needs. You can request deletion of your account and associated data at any time.</p>
+
+  <h2>Your choices</h2>
+  <ul>
+    <li>You can edit or delete your profile information from within the app.</li>
+    <li>You can withdraw location permission at any time through your device settings, though this may limit matching.</li>
+    <li>You can request a copy of your data or full account deletion by contacting us.</li>
+  </ul>
+
+  <h2>Children's privacy</h2>
+  <p>Sahayi is not intended for users under 18. We do not knowingly collect data from minors.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>We may update this policy as Sahayi's features evolve. Material changes will be notified in-app or via the contact email below.</p>
+
+  <h2>Contact us</h2>
+  <p>Questions about this policy or your data can be sent to <a class="email" href="mailto:sahayi.support@gmail.com">sahayi.support@gmail.com</a>.</p>
+</div>
+
+<footer>
+  © 2026 Sahayi. <a href="index.html" style="text-decoration:underline;">Back to homepage</a>
+</footer>
+
+</body>
+</html>
